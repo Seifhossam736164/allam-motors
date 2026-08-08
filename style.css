@@ -1,0 +1,511 @@
+/* =========================
+   ALAM MOTORS STYLE
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+body{
+    background:#111;
+    color:#fff;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    right:0;
+    width:100%;
+    height:80px;
+    background:#000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+    z-index:1000;
+    box-shadow:0 0 15px rgba(255,0,0,.25);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo i{
+    color:#ff0000;
+    font-size:32px;
+}
+
+.logo h2{
+    color:#fff;
+    font-size:30px;
+    font-weight:800;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    transition:.3s;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:#ff0000;
+}
+
+.icons{
+    display:flex;
+    gap:20px;
+}
+
+.icons i{
+    cursor:pointer;
+    font-size:22px;
+    transition:.3s;
+}
+
+.icons i:hover{
+    color:#ff0000;
+    transform:scale(1.2);
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+    margin-top:80px;
+    height:90vh;
+    background:url("../images/banner.jpg") center center/cover;
+    position:relative;
+}
+
+.overlay{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.65);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.overlay h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.overlay p{
+    font-size:22px;
+    max-width:700px;
+    margin-bottom:30px;
+    line-height:1.8;
+}
+
+.btn{
+    background:#ff0000;
+    color:#fff;
+    padding:15px 35px;
+    border-radius:8px;
+    font-size:20px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#cc0000;
+    transform:scale(1.05);
+}
+
+/* =========================
+CATEGORIES
+========================= */
+
+.categories{
+    padding:70px 8%;
+}
+
+.categories h2{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1a1a1a;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.4s;
+    cursor:pointer;
+    box-shadow:0 0 12px rgba(255,0,0,.15);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(255,0,0,.45);
+}
+
+.card img{
+    height:200px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:20px;
+    text-align:center;
+    font-size:24px;
+}
+/* =========================
+PRODUCTS
+========================= */
+
+.products{
+    padding:70px 8%;
+    background:#151515;
+}
+
+.products h2{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:40px;
+}
+
+.product-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.product{
+    background:#1f1f1f;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.4s;
+    box-shadow:0 0 15px rgba(255,0,0,.15);
+}
+
+.product:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(255,0,0,.45);
+}
+
+.product img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product h3{
+    text-align:center;
+    font-size:24px;
+    margin-top:15px;
+}
+
+.product h4{
+    text-align:center;
+    color:#ff2b2b;
+    margin:15px 0;
+    font-size:22px;
+}
+
+.product button{
+    display:block;
+    width:85%;
+    margin:20px auto;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#ff0000;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.product button:hover{
+    background:#c90000;
+    transform:scale(1.05);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:50px 20px;
+}
+
+footer h2{
+    color:#ff0000;
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+footer p{
+    color:#bbb;
+    margin:10px 0;
+    line-height:1.8;
+}
+
+.social{
+    margin:25px 0;
+}
+
+.social i{
+    font-size:28px;
+    margin:0 12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.social i:hover{
+    color:#ff0000;
+    transform:scale(1.25);
+}
+
+/* =========================
+SCROLL BAR
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff0000;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#d40000;
+}
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero .overlay{
+    animation:fadeUp 1s ease;
+}
+
+.card{
+    animation:fadeUp .8s ease;
+}
+
+.product{
+    animation:fadeUp .8s ease;
+}
+
+/* =========================
+BUTTON EFFECTS
+========================= */
+
+.btn,
+.product button{
+    position:relative;
+    overflow:hidden;
+}
+
+.btn::before,
+.product button::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,.2);
+    transition:.5s;
+}
+
+.btn:hover::before,
+.product button:hover::before{
+    left:100%;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+header{
+    padding:15px 25px;
+    flex-wrap:wrap;
+    height:auto;
+}
+
+nav{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:15px 0;
+}
+
+.logo h2{
+    font-size:24px;
+}
+
+.overlay h1{
+    font-size:40px;
+}
+
+.overlay p{
+    font-size:18px;
+}
+
+.products,
+.categories{
+    padding:60px 5%;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+    height:75vh;
+}
+
+.overlay h1{
+    font-size:30px;
+}
+
+.overlay p{
+    font-size:16px;
+}
+
+.btn{
+    padding:12px 25px;
+    font-size:17px;
+}
+
+.cards{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.product-box{
+    grid-template-columns:1fr;
+}
+
+.card img{
+    height:170px;
+}
+
+.product img{
+    height:220px;
+}
+
+footer h2{
+    font-size:28px;
+}
+
+}
+
+@media(max-width:480px){
+
+header{
+    padding:10px 15px;
+}
+
+.logo h2{
+    font-size:20px;
+}
+
+.logo i{
+    font-size:24px;
+}
+
+.icons{
+    gap:12px;
+}
+
+.icons i{
+    font-size:18px;
+}
+
+nav a{
+    font-size:14px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.categories h2,
+.products h2{
+    font-size:28px;
+}
+
+.overlay h1{
+    font-size:24px;
+}
+
+.overlay p{
+    font-size:15px;
+}
+
+.product h3{
+    font-size:20px;
+}
+
+.product h4{
+    font-size:18px;
+}
+
+.product button{
+    font-size:16px;
+}
+
+.social i{
+    font-size:22px;
+    margin:0 8px;
+}
+
+}
