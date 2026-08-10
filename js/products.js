@@ -6,10 +6,10 @@ const products = [
 
     {
         id: 1,
-        name: "Yamaha R15 V4",
-        price: 195000,
+        name: "Hogan 3",
+        price: 48000,
         category: "motorcycles",
-        brand: "Yamaha",
+        brand: "Hogan",
 
         images: [
             "images/r15-1.jpg",
@@ -18,23 +18,23 @@ const products = [
             "images/r15-4.jpg"
         ],
 
-        description: "موتور رياضي 155CC بتصميم عصري وأداء قوي.",
+        description: "موتور رياضي 150CC بتصميم عصري وأداء قوي.",
 
         specs: {
             model: "2026",
-            engine: "155 CC",
-            gearbox: "6 سرعات",
-            color: "أزرق",
+            engine: "150 CC",
+            gearbox: "5 سرعات",
+            color: "متوفر جميع الالوان",
             condition: "جديد"
         }
     },
 
     {
         id: 2,
-        name: "Honda CBR 250R",
-        price: 210000,
+        name: "Bajaj Boxer",
+        price: 59000,
         category: "motorcycles",
-        brand: "Honda",
+        brand: "Bajaj",
 
         images: [
             "images/cbr-1.jpg",
@@ -46,9 +46,139 @@ const products = [
 
         specs: {
             model: "2026",
+            engine: "150 CC",
+            gearbox: "5 سرعات",
+            color: "متوفر جميع الالوان",
+            condition: "جديد"
+        }
+    },
+
+
+    {
+        id: 3,
+        name: "f250",
+        price: 48000,
+        category: "motorcycles",
+        brand: "F250",
+
+        images: [
+            "images/r15-1.jpg",
+            "images/r15-2.jpg",
+            "images/r15-3.jpg",
+            "images/r15-4.jpg"
+        ],
+
+        description: "موتور رياضي 150CC بتصميم عصري وأداء قوي.",
+
+        specs: {
+            model: "2026",
+            engine: "150 CC",
+            gearbox: "5 سرعات",
+            color: "متوفر جميع الالوان",
+            condition: "جديد"
+        }
+    },
+
+
+    {
+        id: 4,
+        name: "SYM 26",
+        price: 56000,
+        category: "motorcycles",
+        brand: "SYM",
+
+        images: [
+            "images/r15-1.jpg",
+            "images/r15-2.jpg",
+            "images/r15-3.jpg",
+            "images/r15-4.jpg"
+        ],
+
+        description: "موتور رياضي 150CC بتصميم عصري وأداء قوي.",
+
+        specs: {
+            model: "2026",
+            engine: "150 CC",
+            gearbox: "5 سرعات",
+            color: "متوفر جميع الالوان",
+            condition: "جديد"
+        }
+    },
+
+
+    {
+        id: 5,
+        name: "Keway",
+        price: 50000,
+        category: "motorcycles",
+        brand: "Keway",
+
+        images: [
+            "images/r15-1.jpg",
+            "images/r15-2.jpg",
+            "images/r15-3.jpg",
+            "images/r15-4.jpg"
+        ],
+
+        description: "موتور رياضي 150CC بتصميم عصري وأداء قوي.",
+
+        specs: {
+            model: "2026",
+            engine: "150 CC",
+            gearbox: "5 سرعات",
+            color: "متوفر جميع الالوان",
+            condition: "جديد"
+        }
+    },
+
+
+    {
+        id: 6,
+        name: "fagory 26",
+        price: 49000,
+        category: "motorcycles",
+        brand: "fagory",
+
+        images: [
+            "images/r15-1.jpg",
+            "images/r15-2.jpg",
+            "images/r15-3.jpg",
+            "images/r15-4.jpg"
+        ],
+
+        description: "موتور رياضي 150CC بتصميم عصري وأداء قوي.",
+
+        specs: {
+            model: "2026",
+            engine: "150 CC",
+            gearbox: "5 سرعات",
+            color: "متوفر جميع الالوان",
+            condition: "جديد"
+        }
+    },
+
+
+    {
+        id: 7,
+        name: "fagory KTX",
+        price: 63000,
+        category: "motorcycles",
+        brand: "KTX",
+
+        images: [
+            "images/r15-1.jpg",
+            "images/r15-2.jpg",
+            "images/r15-3.jpg",
+            "images/r15-4.jpg"
+        ],
+
+        description: "موتور رياضي 150CC بتصميم عصري وأداء قوي.",
+
+        specs: {
+            model: "2026",
             engine: "250 CC",
-            gearbox: "6 سرعات",
-            color: "أحمر",
+            gearbox: "5 سرعات",
+            color: "متوفر جميع الالوان",
             condition: "جديد"
         }
     },
@@ -59,11 +189,11 @@ const products = [
     // =========================
 
     {
-        id: 3,
-        name: "Vespa Sprint",
-        price: 150000,
+        id: 8,
+        name: "SYM Fedal 3",
+        price: 87000,
         category: "scooters",
-        brand: "Vespa",
+        brand: "Fedal 3",
 
         images: [
             "images/vespa-1.jpg",
@@ -75,17 +205,17 @@ const products = [
 
         specs: {
             model: "2026",
-            engine: "150 CC",
+            engine: "200 CC",
             gearbox: "أوتوماتيك",
-            color: "أسود",
+            color: "جميع الالوان متوفره",
             condition: "جديد"
         }
     },
 
     {
-        id: 4,
-        name: "SYM Jet 14",
-        price: 125000,
+        id: 9,
+        name: "SYM Fedal 4",
+        price: 89000,
         category: "scooters",
         brand: "SYM",
 
@@ -98,9 +228,81 @@ const products = [
 
         specs: {
             model: "2026",
+            engine: "200 CC",
+            gearbox: "أوتوماتيك",
+            color: "جميع الالوان متوفره",
+            condition: "جديد"
+        }
+    },
+
+
+    {
+        id: 10,
+        name: "Today",
+        price: 35000,
+        category: "scooters",
+        brand: "Today",
+
+        images: [
+            "images/sym-1.jpg",
+            "images/sym-2.jpg"
+        ],
+
+        description: "سكوتر عملي واقتصادي.",
+
+        specs: {
+            model: "2026",
             engine: "150 CC",
             gearbox: "أوتوماتيك",
-            color: "أبيض",
+            color: "جميع الالوان متوفره",
+            condition: "جديد"
+        }
+    },
+
+
+    {
+        id: 11,
+        name: "fagory",
+        price: 40000,
+        category: "scooters",
+        brand: "fagory",
+
+        images: [
+            "images/sym-1.jpg",
+            "images/sym-2.jpg"
+        ],
+
+        description: "سكوتر عملي واقتصادي.",
+
+        specs: {
+            model: "2026",
+            engine: "150 CC",
+            gearbox: "كهربا",
+            color: "جميع الالوان متوفره",
+            condition: "جديد"
+        }
+    },
+
+
+    {
+        id: 12,
+        name: "ST",
+        price: 88000,
+        category: "scooters",
+        brand: "ST",
+
+        images: [
+            "images/sym-1.jpg",
+            "images/sym-2.jpg"
+        ],
+
+        description: "سكوتر عملي واقتصادي.",
+
+        specs: {
+            model: "2026",
+            engine: "200 CC",
+            gearbox: "أوتوماتيك",
+            color: "جميع الالوان متوفره",
             condition: "جديد"
         }
     },
@@ -111,9 +313,9 @@ const products = [
     // =========================
 
     {
-        id: 5,
+        id: 13,
         name: "تيل فرامل أمامي",
-        price: 850,
+        price: 70,
         category: "parts",
         brand: "Original",
 
@@ -121,7 +323,7 @@ const products = [
             "images/brake-pads.jpg"
         ],
 
-        description: "تيل فرامل عالي الجودة للموتورسيكلات.",
+        description: "تيل فرامل عالي الجودة للاسكوترات",
 
         specs: {
             condition: "جديد",
@@ -131,9 +333,9 @@ const products = [
     },
 
     {
-        id: 6,
-        name: "فلتر زيت",
-        price: 350,
+        id: 14,
+        name: "فلتر f3",
+        price: 120,
         category: "parts",
         brand: "Original",
 
@@ -150,93 +352,632 @@ const products = [
     },
 
 
+    {
+        id: 15,
+        name: "تيل فرامل خلفي",
+        price: 70,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "تيل فرامل عالي الجودة للاسكوترات",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+
+    {
+        id: 16,
+        name: "سير",
+        price: 550,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "سير للاسكوترات عالس الجوده",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+    
+    {
+        id: 17,
+        name: "الكتروني كبير",
+        price: 280,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+    
+    {
+        id: 18,
+        name: "الكتروني صغير",
+        price: 220,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+    
+    {
+        id: 19,
+        name: "كوعه",
+        price: 130,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+    
+    {
+        id: 20,
+        name: "كتينه",
+        price: 160,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+    
+    {
+        id: 21,
+        name: "ملف كهربا",
+        price: 350,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+    
+    {
+        id: 22,
+        name: "صدر f3",
+        price: 1000,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+    
+    {
+        id: 23,
+        name: "جمجمه f3",
+        price: 400,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 24,
+        name: "جمجمه st",
+        price: 400,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+
+ 
+    {
+        id: 25,
+        name: "طقم سلاح",
+        price: 800,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 26,
+        name: "طقم عتب",
+        price: 350,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 27,
+        name: "حليه شكمان f3",
+        price: 120,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 28,
+        name: "باغه فانوس امامي f3",
+        price: 160,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 29,
+        name: "باغه فانوس خلفي f3",
+        price: 150,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+
+ 
+    {
+        id: 30,
+        name: "فرده peramids",
+        price: 480,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+
+ 
+    {
+        id: 31,
+        name: "كوبايه بستم",
+        price: 300,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 32,
+        name: "بوجيه",
+        price: 60,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+
+ 
+    {
+        id: 33,
+        name: "ماستر",
+        price: 300,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 34,
+        name: "كاربرتير",
+        price: 750,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 35,
+        name: "رفرف داخلي f3",
+        price: 400,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+
+ 
+    {
+        id: 36,
+        name: "رفرف داخلي st",
+        price: 240,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 37,
+        name: "بيبيه بوجيه ",
+        price: 40,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 38,
+        name: "طقم ظرف",
+        price: 130,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+    
+     
+    {
+        id: 39,
+        name: "منفله",
+        price: 150,
+        category: "parts",
+        brand: "Original",
+
+        images: [
+            "images/brake-pads.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            quality: "أصلي",
+            warranty: "6 شهور"
+        }
+    },
+
     // =========================
     // 💡 ACCESSORIES
     // =========================
 
     {
-        id: 7,
-        name: "كشاف LED للموتوسيكل",
-        price: 1200,
+        id: 40,
+        name: "قسوه كرسي",
+        price: 120,
         category: "accessories",
-        brand: "LED",
+        brand: "chair",
 
         images: [
             "images/led.jpg"
         ],
 
-        description: "كشاف LED بإضاءة قوية.",
+        description: "قسوه كرسي عاليه الجوده.",
 
         specs: {
             condition: "جديد",
-            type: "LED"
+            type: "chair"
         }
     },
 
     {
-        id: 8,
-        name: "مرايات رياضية",
-        price: 750,
+        id: 41,
+        name: "طقم علامات ST",
+        price: 80,
         category: "accessories",
-        brand: "Universal",
+        brand: "logo",
 
         images: [
             "images/mirrors.jpg"
         ],
 
-        description: "مرايات رياضية مناسبة لعدد كبير من الموتورسيكلات.",
+        description: "علامات اسكوتر ST",
 
         specs: {
             condition: "جديد",
-            type: "Universal"
+            type: "logo"
         }
     },
 
-
-    // =========================
-    // 🪖 HELMETS
-    // =========================
 
     {
-        id: 9,
-        name: "خوذة LS2",
-        price: 4500,
-        category: "helmets",
-        brand: "LS2",
+        id: 42,
+        name: "زرار",
+        price: 30,
+        category: "accessories",
+        brand: "btn",
 
         images: [
-            "images/ls2.jpg"
+            "images/mirrors.jpg"
         ],
 
-        description: "خوذة موتوسيكل عالية الجودة.",
+        description: "",
 
         specs: {
             condition: "جديد",
-            size: "متعدد"
+            type: "btn"
         }
     },
 
+
+    {
+        id: 43,
+        name: "مسند رجل st",
+        price: 250,
+        category: "accessories",
+        brand: "",
+
+        images: [
+            "images/mirrors.jpg"
+        ],
+
+        description: "",
+
+        specs: {
+            condition: "جديد",
+            type: ""
+        }
+    },
 
     // =========================
     // 🛢️ OIL
     // =========================
 
     {
-        id: 10,
-        name: "Motul 7100",
-        price: 950,
+        id: 44,
+        name: "زيت فتيس",
+        price: 90,
         category: "oil",
-        brand: "Motul",
+        brand: "oil",
 
         images: [
             "images/motul.jpg"
         ],
 
-        description: "زيت موتور عالي الأداء.",
+        description: "زيت فتيس عالي الأداء.",
 
         specs: {
             type: "10W40",
-            capacity: "1 Liter",
+            capacity: "",
             condition: "جديد"
         }
     }
