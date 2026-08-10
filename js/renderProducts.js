@@ -5,9 +5,9 @@ let favorites =
     JSON.parse(localStorage.getItem("favorites")) || [];
 
 
-// ================================
-// تحديد القسم من الرابط
-// ================================
+// =====================================
+// قراءة البيانات من الرابط
+// =====================================
 
 const urlParams =
     new URLSearchParams(window.location.search);
@@ -15,17 +15,22 @@ const urlParams =
 const selectedCategory =
     urlParams.get("category");
 
+const searchText =
+    (urlParams.get("search") || "")
+    .trim()
+    .toLowerCase();
 
-// ================================
-// تحديد المنتجات
-// ================================
+
+// =====================================
+// فلترة المنتجات بالقسم
+// =====================================
 
 let displayedProducts = products;
 
 if (selectedCategory) {
 
     displayedProducts =
-        products.filter(function(product) {
+        displayedProducts.filter(function(product) {
 
             return product.category === selectedCategory;
 
@@ -34,51 +39,111 @@ if (selectedCategory) {
 }
 
 
-// ================================
+// =====================================
+// البحث
+// =====================================
+
+if (searchText) {
+
+    displayedProducts =
+        displayedProducts.filter(function(product) {
+
+            const name =
+                product.name.toLowerCase();
+
+            const brand =
+                (product.brand || "").toLowerCase();
+
+            const category =
+                (product.category || "").toLowerCase();
+
+            const description =
+                (product.description || "").toLowerCase();
+
+
+            return (
+                name.includes(searchText) ||
+                brand.includes(searchText) ||
+                category.includes(searchText) ||
+                description.includes(searchText)
+            );
+
+        });
+
+}
+
+
+// =====================================
 // عنوان الصفحة
-// ================================
+// =====================================
 
 const pageTitle =
     document.getElementById("pageTitle");
 
 if (pageTitle) {
 
-    if (selectedCategory === "motorcycles") {
+    if (searchText) {
 
-        pageTitle.textContent = "موتوسكلات";
+        pageTitle.textContent =
+            `نتائج البحث عن: ${searchText}`;
 
-    } else if (selectedCategory === "scooters") {
+    }
 
-        pageTitle.textContent = "سكوترات";
+    else if (selectedCategory === "motorcycles") {
 
-    } else if (selectedCategory === "parts") {
+        pageTitle.textContent =
+            "موتوسكلات";
 
-        pageTitle.textContent = "قطع الغيار";
+    }
 
-    } else if (selectedCategory === "accessories") {
+    else if (selectedCategory === "scooters") {
 
-        pageTitle.textContent = "الإكسسوارات";
+        pageTitle.textContent =
+            "سكوترات";
 
-    } else if (selectedCategory === "helmets") {
+    }
 
-        pageTitle.textContent = "خوذات";
+    else if (selectedCategory === "parts") {
 
-    } else if (selectedCategory === "oil") {
+        pageTitle.textContent =
+            "قطع الغيار";
 
-        pageTitle.textContent = "زيوت";
+    }
 
-    } else {
+    else if (selectedCategory === "accessories") {
 
-        pageTitle.textContent = "كل المنتجات";
+        pageTitle.textContent =
+            "الإكسسوارات";
+
+    }
+
+    else if (selectedCategory === "helmets") {
+
+        pageTitle.textContent =
+            "خوذات";
+
+    }
+
+    else if (selectedCategory === "oil") {
+
+        pageTitle.textContent =
+            "زيوت";
+
+    }
+
+    else {
+
+        pageTitle.textContent =
+            "كل المنتجات";
 
     }
 
 }
 
 
-// ================================
-// هل المنتج في المفضلة؟
-// ================================
+// =====================================
+// المفضلة
+// =====================================
 
 function isFavorite(id) {
 
@@ -91,13 +156,10 @@ function isFavorite(id) {
 }
 
 
-// ================================
-// إضافة / إزالة من المفضلة
-// ================================
-
 function toggleFavorite(id, button) {
 
     id = Number(id);
+
 
     if (isFavorite(id)) {
 
@@ -110,15 +172,17 @@ function toggleFavorite(id, button) {
 
         button.innerHTML = "♡";
 
-        button.classList.remove("active");
+        button.style.color = "#555";
 
-    } else {
+    }
+
+    else {
 
         favorites.push(id);
 
         button.innerHTML = "♥";
 
-        button.classList.add("active");
+        button.style.color = "red";
 
     }
 
@@ -131,28 +195,46 @@ function toggleFavorite(id, button) {
 }
 
 
-// ================================
-// تفريغ المنتجات القديمة
-// ================================
+// =====================================
+// عرض المنتجات
+// =====================================
 
 productsContainer.innerHTML = "";
 
-
-// ================================
-// لو مفيش منتجات
-// ================================
 
 if (displayedProducts.length === 0) {
 
     productsContainer.innerHTML = `
 
-        <div class="empty-products">
+        <div
+            class="empty-products"
+            style="
+                width:100%;
+                text-align:center;
+                padding:60px 20px;
+            "
+        >
 
             <h2>
-                مفيش منتجات في القسم ده حاليًا
+                مفيش منتجات مطابقة للبحث 🔍
             </h2>
 
-            <a href="products.html">
+            <p>
+                جرب تبحث باسم منتج تاني.
+            </p>
+
+            <a
+                href="products.html"
+                style="
+                    display:inline-block;
+                    margin-top:15px;
+                    padding:12px 25px;
+                    background:#111;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:8px;
+                "
+            >
                 عرض كل المنتجات
             </a>
 
@@ -163,9 +245,9 @@ if (displayedProducts.length === 0) {
 }
 
 
-// ================================
-// عرض المنتجات
-// ================================
+// =====================================
+// إنشاء كروت المنتجات
+// =====================================
 
 displayedProducts.forEach(function(product) {
 
@@ -176,25 +258,15 @@ displayedProducts.forEach(function(product) {
         "product";
 
 
-    const favoriteIcon =
-        isFavorite(product.id)
-        ? "♥"
-        : "♡";
-
-
-    const favoriteClass =
-        isFavorite(product.id)
-        ? "active"
-        : "";
+    const favorite =
+        isFavorite(product.id);
 
 
     productElement.innerHTML = `
 
         <div
             class="product-image"
-            style="
-                position:relative;
-            "
+            style="position:relative;"
         >
 
             <img
@@ -203,12 +275,17 @@ displayedProducts.forEach(function(product) {
             >
 
 
-            <!-- زر المفضلة -->
+            <!-- القلب -->
 
             <button
-                class="favorite-button ${favoriteClass}"
-                onclick="toggleFavorite(${product.id}, this)"
                 type="button"
+                class="favorite-button"
+                onclick="
+                    toggleFavorite(
+                        ${product.id},
+                        this
+                    )
+                "
 
                 style="
                     position:absolute;
@@ -218,7 +295,6 @@ displayedProducts.forEach(function(product) {
                     width:42px;
                     height:42px;
                     min-width:42px;
-                    max-width:42px;
 
                     padding:0;
                     margin:0;
@@ -228,14 +304,9 @@ displayedProducts.forEach(function(product) {
 
                     background:white;
 
-                    color:${
-                        isFavorite(product.id)
-                        ? "red"
-                        : "#555"
-                    };
+                    color:${favorite ? "red" : "#555"};
 
                     font-size:25px;
-                    line-height:42px;
 
                     display:flex;
                     align-items:center;
@@ -244,13 +315,14 @@ displayedProducts.forEach(function(product) {
                     cursor:pointer;
 
                     box-shadow:
-                        0 2px 8px rgba(0,0,0,.2);
+                        0 2px 8px
+                        rgba(0,0,0,.2);
 
                     z-index:20;
                 "
             >
 
-                ${favoriteIcon}
+                ${favorite ? "♥" : "♡"}
 
             </button>
 
@@ -270,12 +342,9 @@ displayedProducts.forEach(function(product) {
 
         <a
             href="details.html?id=${product.id}"
-            class="details-link"
         >
 
-            <button
-                type="button"
-            >
+            <button type="button">
                 عرض التفاصيل
             </button>
 
