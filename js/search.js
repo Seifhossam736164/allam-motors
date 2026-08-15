@@ -1,43 +1,83 @@
-const searchInput =
-    document.getElementById("searchInput");
+// =====================================
+// نظام البحث - يعمل في كل الصفحات
+// =====================================
 
-const searchButton =
-    document.getElementById("searchButton");
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const searchButton =
+        document.getElementById("searchButton");
 
 
-function searchProducts() {
-
-    const searchText =
-        searchInput.value.trim();
-
-    if (searchText === "") {
-
+    // لو الصفحة مفيهاش سيرش
+    if (!searchInput) {
         return;
-
     }
 
-    window.location.href =
-        "products.html?search=" +
-        encodeURIComponent(searchText);
 
-}
+    // =================================
+    // تنفيذ البحث
+    // =================================
 
+    function searchProducts() {
 
-searchButton.addEventListener(
-    "click",
-    searchProducts
-);
+        const text =
+            searchInput.value.trim();
 
 
-searchInput.addEventListener(
-    "keydown",
-    function(event) {
+        // لو البحث فاضي
+        if (text === "") {
 
-        if (event.key === "Enter") {
+            window.location.href =
+                "products.html";
 
-            searchProducts();
+            return;
 
         }
 
+
+        // فتح صفحة المنتجات بنتيجة البحث
+        window.location.href =
+            "products.html?search=" +
+            encodeURIComponent(text);
+
     }
-);
+
+
+    // =================================
+    // الضغط على زر البحث
+    // =================================
+
+    if (searchButton) {
+
+        searchButton.addEventListener(
+            "click",
+            searchProducts
+        );
+
+    }
+
+
+    // =================================
+    // الضغط على Enter
+    // =================================
+
+    searchInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                searchProducts();
+
+            }
+
+        }
+    );
+
+
+});
