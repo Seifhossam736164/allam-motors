@@ -349,13 +349,13 @@ const products = [
 
     {
         id: 15,
-        name: "فلتر هواء SYM Fiddle 3",
+        name: "فلتر هواء ST",
         price: 120,
         category: "parts",
         brand: "SYM Original",
 
         images: [
-            "images/oil-filter.jpg"
+            "images/3.jpg"
         ],
 
         description: "فلتر تنقية هواء أصلي للاسكوتر لحماية المحرك من الأتربة وتنظيم استهلاك البنزين.",
@@ -668,7 +668,7 @@ const products = [
 
     {
         id: 31,
-        name: "فر فردة كاوتش Pyramids",
+        name: " فردة كاوتش Pyramids",
         price: 480,
         category: "parts",
         brand: "Pyramids Tires",
@@ -714,8 +714,9 @@ const products = [
         brand: "NGK / Original",
 
         images: [
-            "images/brake-pads.jpg"
+            "images/2.jpg"
         ],
+
 
         description: "بوجيه أصلي لشرارة إشعال قوية وسريعة ولتحسين استهلاك الوقود وقوة الدوارة.",
 
