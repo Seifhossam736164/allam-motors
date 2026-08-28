@@ -394,7 +394,7 @@ const products = [
         brand: "Bando / Original",
 
         images: [
-            "images/brake-pads.jpg"
+            "images/9.jpg"
         ],
 
         description: "سير نقل حركة عالي التحمل للاسكوتر، مقاوم للحرارة والتآكل لضمان سحب وسرعة منتظمة.",
@@ -434,7 +434,7 @@ const products = [
         brand: "Original",
 
         images: [
-            "images/brake-pads.jpg"
+            "images/0.jpg"
         ],
 
         description: "عقل إلكتروني CDI بحجم صغير مخصص للموتوسيكلات والسكوتيرات الكربتير.",
@@ -654,7 +654,8 @@ const products = [
         brand: "SYM Original",
 
         images: [
-            "images/brake-pads.jpg"
+            "images/12.jpg"
+            "images/13.jpg"
         ],
 
         description: "باغة الفانوس الخلفي حمراء شفافة لتوضيح إشارات الإضاءة والفرامل.",
@@ -815,7 +816,7 @@ const products = [
         brand: "Original",
 
         images: [
-            "images/brake-pads.jpg"
+            "images/6.jpg"
         ],
 
         description: "بيبة بوجيه كاوتش مقوى عازل للمياه لمنع تسريب الشرارة وتقطيع المحرك في المطر.",
