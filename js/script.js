@@ -1000,3 +1000,33 @@ document.addEventListener(
 
     }
 );
+document.getElementById("confirmOrder").addEventListener("click", async function () {
+
+    const name = document.getElementById("customerName").value;
+    const phone = document.getElementById("customerPhone").value;
+    const address = document.getElementById("customerAddress").value;
+
+    const response = await fetch(
+        "https://allam-motors-bot.seifalallam.workers.dev",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                phone: phone,
+                address: address,
+                products: "طلب من موقع علام موتورز",
+                total: "سيتم تحديده من الموقع"
+            })
+        }
+    );
+
+    if (response.ok) {
+        alert("✅ تم إرسال الطلب");
+    } else {
+        alert("❌ حصلت مشكلة في إرسال الطلب");
+    }
+
+});
