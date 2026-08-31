@@ -1,158 +1,284 @@
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const orderItems = document.getElementById("orderItems");
 const orderTotal = document.getElementById("orderTotal");
+const checkoutForm = document.getElementById("checkoutForm");
+const confirmBtn = document.getElementById("confirmBtn");
 
 let total = 0;
 
-if (cart.length === 0) {
 
-    orderItems.innerHTML = `
-        <div class="empty-message">
-            <h3>السلة فارغة 🛒</h3>
+/* =========================
+   عرض الطلب
+========================= */
 
-            <p>
-                لازم تضيف منتج للسلة الأول.
-            </p>
+function displayOrder() {
 
-            <a href="products.html">
-                تصفح المنتجات
-            </a>
-        </div>
-    `;
+    orderItems.innerHTML = "";
+    total = 0;
 
-} else {
+    if (cart.length === 0) {
+
+        orderItems.innerHTML = `
+            <div class="empty-message">
+                <h3>🛒 السلة فارغة</h3>
+
+                <a href="products.html">
+                    العودة للمنتجات
+                </a>
+            </div>
+        `;
+
+        orderTotal.textContent = "0";
+
+        confirmBtn.disabled = true;
+
+        return;
+    }
+
 
     cart.forEach(function(item) {
 
-        const product = products.find(function(p) {
-            return p.id === item.id;
-        });
+        const product = products.find(
+            p => p.id === item.id
+        );
 
         if (!product) return;
+
 
         const itemTotal =
             product.price * item.quantity;
 
+
         total += itemTotal;
 
-        const itemElement =
+
+        const div =
             document.createElement("div");
 
-        itemElement.className = "order-item";
+        div.className = "order-item";
 
-        itemElement.innerHTML = `
+
+        div.innerHTML = `
+
             <span>
                 ${product.name}
                 × ${item.quantity}
             </span>
 
-            <span>
-                ${itemTotal.toLocaleString()} جنيه
-            </span>
+            <strong>
+                ${itemTotal.toLocaleString()}
+                جنيه
+            </strong>
+
         `;
 
-        orderItems.appendChild(itemElement);
+
+        orderItems.appendChild(div);
 
     });
 
+
+    orderTotal.textContent =
+        total.toLocaleString();
+
 }
 
-orderTotal.textContent =
-    total.toLocaleString();
+
+/* =========================
+   تأكيد الطلب
+========================= */
+
+checkoutForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
 
 
-// ==========================
-// تأكيد الطلب
-// ==========================
+        if (cart.length === 0) {
 
-const checkoutForm =
-    document.getElementById("checkoutForm");
+            alert("السلة فارغة!");
 
-checkoutForm.addEventListener("submit", function(event) {
+            return;
+        }
 
-    event.preventDefault();
 
-    if (cart.length === 0) {
+        const name =
+            document.getElementById(
+                "customerName"
+            ).value.trim();
 
-        alert("السلة فارغة!");
 
-        return;
+        const phone =
+            document.getElementById(
+                "customerPhone"
+            ).value.trim();
+
+
+        const governorate =
+            document.getElementById(
+                "governorate"
+            ).value;
+
+
+        const address =
+            document.getElementById(
+                "address"
+            ).value.trim();
+
+
+        const notes =
+            document.getElementById(
+                "notes"
+            ).value.trim();
+
+
+        if (
+            !name ||
+            !phone ||
+            !governorate ||
+            !address
+        ) {
+
+            alert("من فضلك املأ البيانات المطلوبة.");
+
+            return;
+        }
+
+
+        /* =========================
+           تجهيز المنتجات
+        ========================= */
+
+        let productsText = "";
+
+
+        cart.forEach(function(item) {
+
+            const product =
+                products.find(
+                    p => p.id === item.id
+                );
+
+
+            if (!product) return;
+
+
+            const itemTotal =
+                product.price * item.quantity;
+
+
+            productsText +=
+                `• ${product.name} × ${item.quantity} = ${itemTotal.toLocaleString()} جنيه\n`;
+
+        });
+
+
+        /* =========================
+           تجهيز البيانات
+        ========================= */
+
+        const order = {
+
+            name: name,
+
+            phone: phone,
+
+            address:
+                governorate +
+                " - " +
+                address,
+
+            notes: notes,
+
+            products: productsText,
+
+            total:
+                total.toLocaleString() +
+                " جنيه"
+
+        };
+
+
+        /* =========================
+           منع الضغط مرتين
+        ========================= */
+
+        confirmBtn.disabled = true;
+
+        confirmBtn.textContent =
+            "جاري إرسال الطلب...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "https://allam-motors-bot.seifalallam.workers.dev",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify(order)
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Worker Error"
+                );
+
+            }
+
+
+            alert(
+                "✅ تم إرسال طلبك بنجاح!"
+            );
+
+
+            /* تفريغ السلة */
+
+            localStorage.removeItem(
+                "cart"
+            );
+
+
+            cart = [];
+
+
+            window.location.href =
+                "index.html";
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            alert(
+                "❌ حصلت مشكلة في إرسال الطلب. حاول مرة أخرى."
+            );
+
+
+            confirmBtn.disabled = false;
+
+            confirmBtn.textContent =
+                "تأكيد الطلب";
+
+        }
 
     }
-
-    const customerName =
-        document.getElementById("customerName").value.trim();
-
-    const customerPhone =
-        document.getElementById("customerPhone").value.trim();
-
-    const governorate =
-        document.getElementById("governorate").value;
-
-    const address =
-        document.getElementById("address").value.trim();
-
-    const notes =
-        document.getElementById("notes").value.trim();
+);
 
 
-    if (
-        !customerName ||
-        !customerPhone ||
-        !governorate ||
-        !address
-    ) {
+/* تشغيل الصفحة */
 
-        alert("من فضلك املأ البيانات المطلوبة.");
-
-        return;
-
-    }
-
-
-    const order = {
-
-        id: Date.now(),
-
-        customer: {
-
-            name: customerName,
-
-            phone: customerPhone,
-
-            governorate: governorate,
-
-            address: address,
-
-            notes: notes
-
-        },
-
-        products: cart,
-
-        total: total,
-
-        date: new Date().toLocaleString("ar-EG")
-
-    };
-
-
-    localStorage.setItem(
-        "lastOrder",
-        JSON.stringify(order)
-    );
-
-
-    localStorage.removeItem("cart");
-
-
-    alert(
-        "تم تسجيل طلبك بنجاح ✅"
-    );
-
-
-    window.location.href =
-        "index.html";
-
-});
+displayOrder();
