@@ -654,7 +654,7 @@ const products = [
         brand: "SYM Original",
 
         images: [
-            "images/12.jpg"
+            "images/12.jpg",
             "images/13.jpg"
         ],
 
