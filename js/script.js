@@ -51,4 +51,50 @@ const products = [
 
 ];
 
+const TELEGRAM_WORKER_URL =
+    "https://allam-motors-bot.seifalallam.workers.dev";
 
+async function sendOrderToTelegram(order) {
+
+    const message = `
+🏍️ طلب جديد من علام موتورز
+
+👤 الاسم: ${order.name}
+📱 الهاتف: ${order.phone}
+📍 العنوان: ${order.address}
+
+🛒 المنتجات:
+${order.products}
+
+💰 الإجمالي: ${order.total} جنيه
+`;
+
+    try {
+
+        const response = await fetch(TELEGRAM_WORKER_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: order.name,
+                phone: order.phone,
+                address: order.address,
+                products: order.products,
+                total: order.total
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error("Telegram Worker Error");
+        }
+
+        return true;
+
+    } catch (error) {
+
+        console.error(error);
+        return false;
+
+    }
+    }
