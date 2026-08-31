@@ -260,12 +260,10 @@ checkoutForm.addEventListener(
 
 
             if (!response.ok) {
-
-                throw new Error(
-                    "Worker Error"
-                );
-
-            }
+    const errorText = await response.text();
+    console.log("Worker response:", errorText);
+    throw new Error(errorText);
+    }
 
 
             /* =========================
