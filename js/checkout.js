@@ -5,6 +5,9 @@ const orderTotal = document.getElementById("orderTotal");
 const checkoutForm = document.getElementById("checkoutForm");
 const confirmBtn = document.getElementById("confirmBtn");
 
+const TELEGRAM_WORKER_URL =
+    "https://allam-motors-bot.seifalallam.workers.dev";
+
 let total = 0;
 
 
@@ -15,17 +18,23 @@ let total = 0;
 function displayOrder() {
 
     orderItems.innerHTML = "";
+
     total = 0;
+
 
     if (cart.length === 0) {
 
         orderItems.innerHTML = `
             <div class="empty-message">
-                <h3>🛒 السلة فارغة</h3>
+
+                <h3>
+                    🛒 السلة فارغة
+                </h3>
 
                 <a href="products.html">
                     العودة للمنتجات
                 </a>
+
             </div>
         `;
 
@@ -37,13 +46,19 @@ function displayOrder() {
     }
 
 
+    confirmBtn.disabled = false;
+
+
     cart.forEach(function(item) {
 
         const product = products.find(
             p => p.id === item.id
         );
 
-        if (!product) return;
+
+        if (!product) {
+            return;
+        }
 
 
         const itemTotal =
@@ -56,7 +71,9 @@ function displayOrder() {
         const div =
             document.createElement("div");
 
-        div.className = "order-item";
+
+        div.className =
+            "order-item";
 
 
         div.innerHTML = `
@@ -86,7 +103,7 @@ function displayOrder() {
 
 
 /* =========================
-   تأكيد الطلب
+   إرسال الطلب
 ========================= */
 
 checkoutForm.addEventListener(
@@ -105,34 +122,42 @@ checkoutForm.addEventListener(
 
 
         const name =
-            document.getElementById(
-                "customerName"
-            ).value.trim();
+            document
+                .getElementById("customerName")
+                .value
+                .trim();
 
 
         const phone =
-            document.getElementById(
-                "customerPhone"
-            ).value.trim();
+            document
+                .getElementById("customerPhone")
+                .value
+                .trim();
 
 
         const governorate =
-            document.getElementById(
-                "governorate"
-            ).value;
+            document
+                .getElementById("governorate")
+                .value;
 
 
         const address =
-            document.getElementById(
-                "address"
-            ).value.trim();
+            document
+                .getElementById("address")
+                .value
+                .trim();
 
 
         const notes =
-            document.getElementById(
-                "notes"
-            ).value.trim();
+            document
+                .getElementById("notes")
+                .value
+                .trim();
 
+
+        /* =========================
+           التحقق من البيانات
+        ========================= */
 
         if (
             !name ||
@@ -141,7 +166,9 @@ checkoutForm.addEventListener(
             !address
         ) {
 
-            alert("من فضلك املأ البيانات المطلوبة.");
+            alert(
+                "من فضلك املأ جميع البيانات المطلوبة."
+            );
 
             return;
         }
@@ -162,7 +189,9 @@ checkoutForm.addEventListener(
                 );
 
 
-            if (!product) return;
+            if (!product) {
+                return;
+            }
 
 
             const itemTotal =
@@ -176,7 +205,7 @@ checkoutForm.addEventListener(
 
 
         /* =========================
-           تجهيز البيانات
+           تجهيز الطلب
         ========================= */
 
         const order = {
@@ -202,7 +231,7 @@ checkoutForm.addEventListener(
 
 
         /* =========================
-           منع الضغط مرتين
+           زر الإرسال
         ========================= */
 
         confirmBtn.disabled = true;
@@ -215,7 +244,7 @@ checkoutForm.addEventListener(
 
             const response =
                 await fetch(
-                    "https://allam-motors-bot.seifalallam.workers.dev",
+                    TELEGRAM_WORKER_URL,
                     {
                         method: "POST",
 
@@ -239,8 +268,12 @@ checkoutForm.addEventListener(
             }
 
 
+            /* =========================
+               نجاح الإرسال
+            ========================= */
+
             alert(
-                "✅ تم إرسال طلبك بنجاح!"
+                "✅ تم إرسال الطلب بنجاح!"
             );
 
 
@@ -254,13 +287,18 @@ checkoutForm.addEventListener(
             cart = [];
 
 
+            /* العودة للرئيسية */
+
             window.location.href =
                 "index.html";
 
 
         } catch (error) {
 
-            console.error(error);
+            console.error(
+                "Telegram Error:",
+                error
+            );
 
 
             alert(
@@ -279,6 +317,8 @@ checkoutForm.addEventListener(
 );
 
 
-/* تشغيل الصفحة */
+/* =========================
+   تشغيل الصفحة
+========================= */
 
 displayOrder();
