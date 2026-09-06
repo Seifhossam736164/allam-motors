@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seifhossam736164.github.io/allam-motors/sitemap.xml
